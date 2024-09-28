@@ -1,0 +1,128 @@
+{
+  "nodes": {
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1705309234,
+        "narHash": "sha256-uNRRNRKmJyCRC/8y1RqBkqWBLM034y4qN7EprSdmgyA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "1ef2e671c3b0c19053962c07dbda38332dcebf26",
+        "type": "github"
+      },
+      "original": {
+        "id": "flake-utils",
+        "type": "indirect"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1726989464,
+        "narHash": "sha256-Vl+WVTJwutXkimwGprnEtXc/s/s8sMuXzqXaspIGlwM=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "2f23fa308a7c067e52dfcc30a0758f47043ec176",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "release-24.05",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1727397532,
+        "narHash": "sha256-pojbL/qteElw/nIXlN8kmHn/w6PQbEHr7Iz+WOXs0EM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "f65141456289e81ea0d5a05af8898333cab5c53d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1708093448,
+        "narHash": "sha256-gohEm3/NVyu7WINFhRf83yJH8UM2ie/KY9Iw3VN6fiE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c7763249f02b7786b4ca36e13a4d7365cfba162f",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs",
+        "yandex-music": "yandex-music"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "yandex-music": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs_2",
+        "ymExe": "ymExe"
+      },
+      "locked": {
+        "lastModified": 1727397740,
+        "narHash": "sha256-FTg8eGQZkmy/Ughf5VgHjch13jgmY37sN0uuuoRriBA=",
+        "owner": "cucumber-sp",
+        "repo": "yandex-music-linux",
+        "rev": "169ba8d19cdd4854ff33c7c67f682684d9c4737a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cucumber-sp",
+        "repo": "yandex-music-linux",
+        "type": "github"
+      }
+    },
+    "ymExe": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-PFrV8F2KlkAsxEGSf8Wg1e67dnP2M+iNLNuR5AyJGuE=",
+        "type": "file",
+        "url": "https://music-desktop-application.s3.yandex.net/stable/Yandex_Music_x64_5.20.2.exe"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://music-desktop-application.s3.yandex.net/stable/Yandex_Music_x64_5.20.2.exe"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
