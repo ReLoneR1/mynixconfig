@@ -4,16 +4,13 @@
   environment.systemPackages = with pkgs; [
 
     alsa-utils
-    curl
+    drawing
     eza
     floorp
-    gcc
     gnome-extension-manager
     gnome.gnome-themes-extra
     gnome.gnome-tweaks
     gtk-engine-murrine
-    mesa
-    nodejs_22
     obs-studio
     onlyoffice-bin
     rustdesk-flutter
@@ -22,7 +19,6 @@
     ueberzugpp
     unzip
     vesktop
-    wget
     wowup-cf
     zsh-you-should-use
 

@@ -142,7 +142,6 @@
       flc = "cd ~/mynixconfig/ && nix flake check && cd ~";
       flu = "cd ~/mynixconfig/ && nix flake update && cd ~";
       nhs = "nh os switch";
-      fu = "flatpak update";
     };
     oh-my-zsh = {
       enable = true;
