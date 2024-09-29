@@ -12,7 +12,26 @@
     defaultEditor = true;
     vimAlias = true;
     opts.relativenumber = true;
-    plugins.lualine.enable = true;
+    clipboard = {
+      register = "unnamedplus";
+      providers.xclip.enable = true;
+    };
+    plugins = {
+      lualine.enable = true;
+      cmp = {
+        enable = true;
+        autoEnableSources = true;
+	settings = {
+	  sources = [
+	    { name = "path"; }
+	    { name = "buffer"; }
+	  ];
+	  mapping = {
+	    "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+	  };
+        };
+      };
+    };
   };
 
 
