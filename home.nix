@@ -23,34 +23,35 @@
       register = "unnamedplus";
       providers.xclip.enable = true;
     };
-    plugins = {
-      lualine.enable = true;
-      cmp = {
-        enable = true;
-        autoEnableSources = true;
-        settings = {
-          sources = [
-            { name = "path"; }
-            { name = "buffer"; }
-          ];
-          mapping."<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-        };
-      };
-      treesitter.enable = true;
-      indent-blankline = {
-        enable = true;
-        settings = {
-          indent.char = "|";
-          scope = {
-            show_end = false;
-            show_exact_scope = true;
-            show_start = false;
-          };
-        };
-      };
-      rainbow-delimiters.enable = true;
-    };
   };
+  programs.nixvim.plugins = {
+    lualine.enable = true;
+    cmp = {
+      enable = true;
+      autoEnableSources = true;
+      settings = {
+        sources = [
+          { name = "path"; }
+          { name = "buffer"; }
+        ];
+        mapping."<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+      };
+    };
+    treesitter.enable = true;
+    indent-blankline = {
+      enable = true;
+      settings = {
+        indent.char = "|";
+        scope = {
+          show_end = false;
+          show_exact_scope = true;
+          show_start = false;
+        };
+      };
+    };
+    rainbow-delimiters.enable = true;
+  };
+  
 
 
   programs.atuin = {
