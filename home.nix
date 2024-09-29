@@ -1,9 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "reloner";
-  home.homeDirectory = "/home/reloner";
-  home.stateVersion = "24.05";
+  home = {
+    username = "reloner";
+    homeDirectory = "/home/reloner";
+    stateVersion = "24.05";
+  };
   programs.home-manager.enable = true;
 
 
@@ -11,7 +13,12 @@
     enable = true;
     defaultEditor = true;
     vimAlias = true;
-    opts.relativenumber = true;
+    opts = {
+      relativenumber = true;
+      expandtab = true;
+      shiftwidth = 2;
+      tabstop = 2;
+    };
     clipboard = {
       register = "unnamedplus";
       providers.xclip.enable = true;
@@ -21,16 +28,27 @@
       cmp = {
         enable = true;
         autoEnableSources = true;
-	settings = {
-	  sources = [
-	    { name = "path"; }
-	    { name = "buffer"; }
-	  ];
-	  mapping = {
-	    "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-	  };
+        settings = {
+          sources = [
+            { name = "path"; }
+            { name = "buffer"; }
+          ];
+          mapping."<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
         };
       };
+      treesitter.enable = true;
+      indent-blankline = {
+        enable = true;
+        settings = {
+          indent.char = "|";
+          scope = {
+            show_end = false;
+            show_exact_scope = true;
+            show_start = false;
+          };
+        };
+      };
+      rainbow-delimiters.enable = true;
     };
   };
 

@@ -72,7 +72,6 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
-  networking.hostName = "nixos";
 
   services.xserver.displayManager.gdm = {
     enable = true;
@@ -88,13 +87,14 @@
     gnome-font-viewer
     gnome-music
   ];
-
-  services.flatpak.enable = true;
-  system.stateVersion = "24.05"; 
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "reloner";
+
+  networking.hostName = "nixos";
+  services.flatpak.enable = true;
+  system.stateVersion = "24.05"; 
 
   imports = [ 
     ./hardware-configuration.nix
@@ -116,11 +116,11 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-  hardware.opengl = {
+  hardware.opengl.enable = true;
+  services.xserver = {
+    videoDrivers = ["nvidia"];
     enable = true;
   };
-  services.xserver.videoDrivers = ["nvidia"];
-  services.xserver.enable = true;
 
   i18n.defaultLocale = "ru_RU.UTF-8";
   i18n.extraLocaleSettings = {

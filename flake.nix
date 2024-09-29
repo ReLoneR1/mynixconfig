@@ -25,11 +25,11 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.reloner = import ./home.nix;
-	    home-manager.sharedModules = [
-	      nixvim.homeManagerModules.nixvim
-	    ];
+            home-manager.sharedModules = [
+              nixvim.homeManagerModules.nixvim
+            ];
           }
-	  yandex-music.nixosModules.default
+          yandex-music.nixosModules.default
         ];
       };
     };
