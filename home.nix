@@ -9,6 +9,7 @@
 
   programs.nixvim = {
     enable = true;
+    defaultEditor = true;
     vimAlias = true;
     opts.relativenumber = true;
     plugins.lualine.enable = true;
