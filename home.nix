@@ -7,9 +7,71 @@
   programs.home-manager.enable = true;
 
 
+  programs.nixvim = {
+    enable = true;
+    vimAlias = true;
+    opts.relativenumber = true;
+    plugins.lualine.enable = true;
+  };
+
+
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+
+  programs.git = {
+    enable = true;
+    userName  = "ReLoneR1";
+    userEmail = "jowlaoow@gmail.com";
+  };
+
+
+  programs.ranger = {
+    enable = true;
+    extraConfig = ''
+      set preview_images true 
+      set preview_images_method ueberzug
+    '';
+  };
+
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    shellAliases = {
+      # Common alias
+      l = "eza --icons";
+      ll = "eza -a --icons";
+      r = "ranger";
+      neo = "fastfetch";
+      # Nixos alias
+      fl = "vim ~/mynixconfig/flake.nix";
+      conf = "vim ~/mynixconfig/configuration.nix";
+      hm = "vim ~/mynixconfig/home.nix";
+      flc = "cd ~/mynixconfig/ && nix flake check && cd ~";
+      flu = "cd ~/mynixconfig/ && nix flake update && cd ~";
+      nhs = "nh os switch";
+    };
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+    };
+    plugins = [
+      {
+        name = "zsh-you-shoud-use";
+        src = "${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use";
+      }
+    ];
   };
 
 
@@ -100,58 +162,5 @@
         }
       ];
     };
-  };
-  
-  programs.git = {
-    enable = true;
-    userName  = "ReLoneR1";
-    userEmail = "jowlaoow@gmail.com";
-  };
-
-  programs.ranger = {
-    enable = true;
-    extraConfig = ''
-      set preview_images true 
-      set preview_images_method ueberzug
-    '';
-  };
-
-
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    shellAliases = {
-      # Common alias
-      l = "eza --icons";
-      ll = "eza -a --icons";
-      vim = "nvim";
-      r = "ranger";
-      neo = "fastfetch";
-      # Nixos alias
-      fl = "nvim ~/mynixconfig/flake.nix";
-      conf = "nvim ~/mynixconfig/configuration.nix";
-      hm = "nvim ~/mynixconfig/home.nix";
-      flc = "cd ~/mynixconfig/ && nix flake check && cd ~";
-      flu = "cd ~/mynixconfig/ && nix flake update && cd ~";
-      nhs = "nh os switch";
-    };
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" ];
-    };
-    plugins = [
-      {
-        name = "zsh-you-shoud-use";
-        src = "${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use";
-      }
-    ];
   };
 }

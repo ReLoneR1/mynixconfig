@@ -8,9 +8,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     yandex-music.url = "github:cucumber-sp/yandex-music-linux";
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, yandex-music }: {
+  outputs = { self, nixpkgs, home-manager, yandex-music, nixvim }: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -21,10 +25,13 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.reloner = import ./home.nix;
+	    home-manager.sharedModules = [
+	      nixvim.homeManagerModules.nixvim
+	    ];
           }
 	  yandex-music.nixosModules.default
         ];
       };
     };
-  };	
+  };
 }
