@@ -15,6 +15,7 @@
     onlyoffice-bin
     rustdesk-flutter
     sassc
+    speedtest-cli
     tilix
     ueberzugpp
     unzip
@@ -81,10 +82,12 @@
   environment.gnome.excludePackages = with pkgs.gnome; [
     epiphany
     geary
+    gnome-calendar
     gnome-characters
     gnome-clocks
     gnome-contacts
     gnome-font-viewer
+    gnome-maps
     gnome-music
   ];
   systemd.services."getty@tty1".enable = false;
@@ -139,7 +142,6 @@
     variant = "";
   };
   time.timeZone = "Europe/Moscow";
-
   networking.networkmanager.enable = true;
 
   sound.enable = true;

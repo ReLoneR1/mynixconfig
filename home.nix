@@ -24,6 +24,33 @@
       providers.xclip.enable = true;
     };
   };
+  programs.nixvim.keymaps = [
+    {
+      mode = "n";
+      action = ":";
+      key = ";";
+    }
+    {
+      mode = "n";
+      action = "<C-d>zz";
+      key = "<C-d>";
+    }
+    {
+      mode = "n";
+      action = "<C-u>zz";
+      key = "<C-u>";
+    }
+    {
+      mode = "n";
+      action = "nzz";
+      key = "n";
+    }
+    {
+      mode = "n";
+      action = "Nzz";
+      key = "N";
+    }
+  ];
   programs.nixvim.plugins = {
     lualine.enable = true;
     cmp = {
