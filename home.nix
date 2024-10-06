@@ -107,10 +107,12 @@
         close.key = "<C-x>";
         next.key = "<Tab>";
       };
-      settings.auto_hide = 1;
+      settings = {
+        animation = false;
+        auto_hide = 1;
+      };
     };
   };
-  
 
 
   programs.atuin = {
