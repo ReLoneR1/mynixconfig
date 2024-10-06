@@ -13,21 +13,70 @@
     enable = true;
     defaultEditor = true;
     vimAlias = true;
+    colorschemes.base16 = {
+      enable = true;
+      colorscheme = "catppuccin-frappe";
+    };
+    clipboard = {
+      register = "unnamedplus";
+      providers.xclip.enable = true;
+    };
     opts = {
       relativenumber = true;
       expandtab = true;
       shiftwidth = 2;
       tabstop = 2;
     };
-    clipboard = {
-      register = "unnamedplus";
-      providers.xclip.enable = true;
-    };
-    colorschemes.base16 = {
-      enable = true;
-      colorscheme = "catppuccin-frappe";
-    };
   };
+
+  programs.nixvim.plugins = {
+    barbar = {
+      enable = true;
+      keymaps = {
+        close.key = "<C-x>";
+        next.key = "<Tab>";
+      };
+      settings = {
+        animation = false;
+        auto_hide = 1;
+      };
+    };
+    cmp = {
+      enable = true;
+      autoEnableSources = true;
+      settings = {
+        sources = [
+          { name = "path"; }
+          { name = "buffer"; }
+        ];
+        mapping."<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+      };
+    };
+    indent-blankline = {
+      enable = true;
+      settings = {
+        indent.char = "|";
+        scope = {
+          show_end = false;
+          show_exact_scope = true;
+          show_start = false;
+        };
+      };
+    };
+    lualine.enable = true;
+    nvim-autopairs.enable = true;
+    nvim-tree = {
+      enable = true;
+      view = {
+        cursorline = false;
+        relativenumber = true;
+      };
+    };
+    rainbow-delimiters.enable = true;
+    transparent.enable = true;
+    treesitter.enable = true;
+  };
+
   programs.nixvim.keymaps = [
     {
       mode = "n";
@@ -67,52 +116,6 @@
       options.silent = true;
     }
   ];
-  programs.nixvim.plugins = {
-    lualine.enable = true;
-    cmp = {
-      enable = true;
-      autoEnableSources = true;
-      settings = {
-        sources = [
-          { name = "path"; }
-          { name = "buffer"; }
-        ];
-        mapping."<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-      };
-    };
-    treesitter.enable = true;
-    indent-blankline = {
-      enable = true;
-      settings = {
-        indent.char = "|";
-        scope = {
-          show_end = false;
-          show_exact_scope = true;
-          show_start = false;
-        };
-      };
-    };
-    rainbow-delimiters.enable = true;
-    nvim-tree = {
-      enable = true;
-      view = {
-        cursorline = false;
-        relativenumber = true;
-      };
-    };
-    transparent.enable = true;
-    barbar = {
-      enable = true;
-      keymaps = {
-        close.key = "<C-x>";
-        next.key = "<Tab>";
-      };
-      settings = {
-        animation = false;
-        auto_hide = 1;
-      };
-    };
-  };
 
 
   programs.atuin = {
