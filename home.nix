@@ -23,6 +23,10 @@
       register = "unnamedplus";
       providers.xclip.enable = true;
     };
+    colorschemes.base16 = {
+      enable = true;
+      colorscheme = "catppuccin-frappe";
+    };
   };
   programs.nixvim.keymaps = [
     {
@@ -49,6 +53,18 @@
       mode = "n";
       action = "Nzz";
       key = "N";
+    }
+    {
+      mode = "n";
+      action = ":NvimTreeToggle<CR>";
+      key = "<C-n>";
+      options.silent = true;
+    }
+    {
+      mode = "n";
+      action = ":NvimTreeFocus<CR>";
+      key = "<S-n>";
+      options.silent = true;
     }
   ];
   programs.nixvim.plugins = {
@@ -77,6 +93,22 @@
       };
     };
     rainbow-delimiters.enable = true;
+    nvim-tree = {
+      enable = true;
+      view = {
+        cursorline = false;
+        relativenumber = true;
+      };
+    };
+    transparent.enable = true;
+    barbar = {
+      enable = true;
+      keymaps = {
+        close.key = "<C-x>";
+        next.key = "<Tab>";
+      };
+      settings.auto_hide = 1;
+    };
   };
   
 

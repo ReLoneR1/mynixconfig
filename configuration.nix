@@ -20,6 +20,7 @@
     ueberzugpp
     unzip
     vesktop
+    wget
     wowup-cf
     zsh-you-should-use
 
