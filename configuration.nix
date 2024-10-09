@@ -17,6 +17,7 @@
     sassc
     speedtest-cli
     tilix
+    tldr
     ueberzugpp
     unzip
     vesktop
@@ -32,6 +33,13 @@
     nvidiaSupport = true;
   };
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/reloner/mynixconfig";
+  }; 
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -39,12 +47,8 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/reloner/mynixconfig";
-  }; 
+  programs.virt-manager.enable = true;
+  virtualisation.libvirtd.enable = true;
 
   programs.yandex-music.enable = true;
 
