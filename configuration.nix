@@ -10,7 +10,9 @@
     gnome-extension-manager
     gnome.gnome-themes-extra
     gnome.gnome-tweaks
+    gnumake
     gtk-engine-murrine
+    julia-bin
     obs-studio
     onlyoffice-bin
     rustdesk-flutter
@@ -21,6 +23,7 @@
     ueberzugpp
     unzip
     vesktop
+    vscodium
     wget
     wowup-cf
     zsh-you-should-use
@@ -38,7 +41,14 @@
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/reloner/mynixconfig";
-  }; 
+  };
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      conda
+    ];
+  };
 
   programs.steam = {
     enable = true;
@@ -94,6 +104,7 @@
     gnome-font-viewer
     gnome-maps
     gnome-music
+    gnome-software
   ];
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
