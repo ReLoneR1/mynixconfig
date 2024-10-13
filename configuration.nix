@@ -7,6 +7,7 @@
     drawing
     eza
     floorp
+    gnome.dconf-editor
     gnome-extension-manager
     gnome.gnome-themes-extra
     gnome.gnome-tweaks
@@ -93,6 +94,13 @@
     enable = true;
     wayland = false;
   };
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "reloner";
+  };
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
+
   services.xserver.desktopManager.gnome.enable = true;
   environment.gnome.excludePackages = with pkgs.gnome; [
     epiphany
@@ -106,14 +114,12 @@
     gnome-music
     gnome-software
   ];
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "reloner";
+
+  services.xserver.windowManager.awesome.enable = true;
 
   networking.hostName = "nixos";
+  system.stateVersion = "24.05";
   services.flatpak.enable = true;
-  system.stateVersion = "24.05"; 
 
   imports = [ 
     ./hardware-configuration.nix
@@ -155,6 +161,7 @@
   };
   services.xserver.xkb = {
     layout = "us,ru";
+    options = "grp:alt_shift_toggle";
     variant = "";
   };
   time.timeZone = "Europe/Moscow";
