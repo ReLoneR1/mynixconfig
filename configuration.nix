@@ -63,22 +63,8 @@
 
   programs.yandex-music.enable = true;
 
-  programs.zsh = {
-    enable = true;
-    promptInit = ''
-      autoload -U colors && colors
-      PROMPT="%{$fg_bold[blue]%}["
-      PROMPT+="%{$fg_bold[cyan]%}%n%{$fg_bold[blue]%}@%{$fg_bold[cyan]%}%m"
-      PROMPT+="%{$fg_bold[blue]%}]"
-      PROMPT+=" %{$fg_bold[cyan]%}%~%{$reset_color%} "
-    '';
-    shellInit = ''
-      autoload -U promptinit; promptinit
-    '';
-    interactiveShellInit = ''
-      source ${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
-    '';
-  };
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
 
   environment.sessionVariables = rec {
@@ -177,7 +163,6 @@
     pulse.enable = true;
   };
 
-  users.defaultUserShell = pkgs.zsh;
   users.users.reloner = {
     isNormalUser = true;
     description = "ReLoneR";

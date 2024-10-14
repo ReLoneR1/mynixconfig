@@ -24,11 +24,14 @@
       enable = true;
       plugins = [ "git" ];
     };
-    plugins = [
-      {
-        name = "zsh-you-shoud-use";
-        src = "${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use";
-      }
-    ];
+    initExtra = ''
+      autoload -U colors && colors
+      PROMPT="%{$fg_bold[blue]%}["
+      PROMPT+="%{$fg_bold[cyan]%}%n%{$fg_bold[blue]%}@%{$fg_bold[cyan]%}%m"
+      PROMPT+="%{$fg_bold[blue]%}]"
+      PROMPT+=" %{$fg_bold[cyan]%}%~%{$reset_color%} "
+      autoload -U promptinit; promptinit
+      source ${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
+    '';
   };
 }
