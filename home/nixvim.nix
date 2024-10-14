@@ -66,6 +66,10 @@
       };
     };
     rainbow-delimiters.enable = true;
+    telescope = {
+      enable = true;
+      keymaps."<C-f>" = "find_files";
+    };
     transparent.enable = true;
     treesitter.enable = true;
   };
