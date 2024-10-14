@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    zsh-you-should-use
-  ];
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;

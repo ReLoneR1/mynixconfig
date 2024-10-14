@@ -5,6 +5,7 @@
     username = "reloner";
     homeDirectory = "/home/reloner";
     stateVersion = "24.05";
+    packages = with pkgs; [ eza ueberzugpp zsh-you-should-use ];
   };
   programs.home-manager.enable = true;
   imports = [

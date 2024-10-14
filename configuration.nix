@@ -5,7 +5,6 @@
 
     alsa-utils
     drawing
-    eza
     floorp
     gnome.dconf-editor
     gnome-extension-manager
@@ -21,7 +20,6 @@
     speedtest-cli
     tilix
     tldr
-    ueberzugpp
     unzip
     vesktop
     vscodium
