@@ -2,7 +2,8 @@
   description = "reloner flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,23 +15,28 @@
     yandex-music.url = "github:cucumber-sp/yandex-music-linux";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, yandex-music }: {
+  outputs = { self, nixpkgs, ... }@inputs: 
+  let
+    pkgs-unstable = import inputs.unstable { system = "x86_64-linux"; config.allowUnfree = true; };
+  in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          home-manager.nixosModules.home-manager
+          { boot.kernelPackages = pkgs-unstable.linuxPackages_latest; }
+          inputs.home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.reloner = import ./home/home.nix;
             home-manager.sharedModules = [
-              nixvim.homeManagerModules.nixvim
+              inputs.nixvim.homeManagerModules.nixvim
             ];
           }
-          yandex-music.nixosModules.default
+          inputs.yandex-music.nixosModules.default
         ];
+        specialArgs = { inherit pkgs-unstable; };
       };
     };
   };

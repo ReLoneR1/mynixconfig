@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -13,6 +13,7 @@
     gnumake
     gtk-engine-murrine
     julia-bin
+    lutris
     obs-studio
     onlyoffice-bin
     rustdesk-flutter
@@ -21,7 +22,6 @@
     tilix
     tldr
     unzip
-    vesktop
     vscodium
     wget
     wowup-cf
@@ -75,7 +75,7 @@
 
   services.xserver.displayManager.gdm = {
     enable = true;
-    wayland = false;
+    wayland = true;
   };
   services.displayManager.autoLogin = {
     enable = true;
@@ -98,11 +98,9 @@
     gnome-software
   ];
 
-  services.xserver.windowManager.awesome.enable = true;
 
   networking.hostName = "nixos";
   system.stateVersion = "24.05";
-  services.flatpak.enable = true;
 
   imports = [ 
     ./hardware-configuration.nix
@@ -112,6 +110,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
@@ -120,9 +119,9 @@
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    open = false;
+    open = true;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = pkgs-unstable.linuxPackages_latest.nvidiaPackages.latest;
   };
   hardware.opengl.enable = true;
   services.xserver = {
