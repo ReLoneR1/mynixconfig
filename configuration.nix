@@ -2,7 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-
     alsa-utils
     drawing
     floorp
@@ -25,7 +24,6 @@
     vscodium
     wget
     wowup-cf
-
   ];
 
 
