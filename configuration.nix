@@ -75,7 +75,7 @@
 
   services.xserver.displayManager.gdm = {
     enable = true;
-    wayland = true;
+    wayland = false;
   };
   services.displayManager.autoLogin = {
     enable = true;
