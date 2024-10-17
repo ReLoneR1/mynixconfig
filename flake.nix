@@ -24,7 +24,6 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          { boot.kernelPackages = pkgs-unstable.linuxPackages_latest; }
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

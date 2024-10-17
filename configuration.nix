@@ -110,6 +110,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs-unstable.linuxPackages_latest;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
@@ -120,7 +121,7 @@
     powerManagement.finegrained = false;
     open = true;
     nvidiaSettings = true;
-    package = pkgs-unstable.linuxPackages_latest.nvidiaPackages.latest;
+    package = pkgs-unstable.linuxPackages_latest.nvidiaPackages.stable;
   };
   hardware.opengl.enable = true;
   services.xserver = {
