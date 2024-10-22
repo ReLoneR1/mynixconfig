@@ -15,6 +15,7 @@
     lutris
     obs-studio
     onlyoffice-bin
+    protonup-ng
     rustdesk-flutter
     sassc
     speedtest-cli
@@ -45,7 +46,7 @@
       conda
     ];
   };
-
+  
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -61,9 +62,11 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
+##########################################################################################################
 
   environment.sessionVariables = rec {
     TERMINAL = "tilix";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "~/.steam/root/compatibilitytools.d";
   };
 
   fonts.packages = with pkgs; [
@@ -138,11 +141,6 @@
     LC_PAPER = "ru_RU.UTF-8";
     LC_TELEPHONE = "ru_RU.UTF-8";
     LC_TIME = "ru_RU.UTF-8";
-  };
-  services.xserver.xkb = {
-    layout = "us,ru";
-    options = "grp:alt_shift_toggle";
-    variant = "";
   };
   time.timeZone = "Europe/Moscow";
   networking.networkmanager.enable = true;
