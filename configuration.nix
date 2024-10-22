@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -15,7 +15,6 @@
     lutris
     obs-studio
     onlyoffice-bin
-    protonup-ng
     rustdesk-flutter
     sassc
     speedtest-cli
@@ -47,12 +46,7 @@
     ];
   };
   
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
+  programs.steam.enable = true;
 
   programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;
@@ -66,7 +60,6 @@
 
   environment.sessionVariables = rec {
     TERMINAL = "tilix";
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "~/.steam/root/compatibilitytools.d";
   };
 
   fonts.packages = with pkgs; [
@@ -77,10 +70,6 @@
   services.xserver.displayManager.gdm = {
     enable = true;
     wayland = false;
-  };
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "reloner";
   };
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
@@ -99,19 +88,13 @@
     gnome-software
   ];
 
-
   networking.hostName = "nixos";
   system.stateVersion = "24.05";
-
-  imports = [ 
-    ./hardware-configuration.nix
-  ];
 
 ##########################################################################################################
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs-unstable.linuxPackages_latest;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
@@ -120,15 +103,16 @@
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    open = true;
+    open = false;
     nvidiaSettings = true;
-    package = pkgs-unstable.linuxPackages_latest.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
   hardware.opengl.enable = true;
   services.xserver = {
     videoDrivers = ["nvidia"];
     enable = true;
   };
+
 
   i18n.defaultLocale = "ru_RU.UTF-8";
   i18n.extraLocaleSettings = {
@@ -155,9 +139,18 @@
     pulse.enable = true;
   };
 
+
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "reloner";
+  };
   users.users.reloner = {
     isNormalUser = true;
     description = "ReLoneR";
     extraGroups = [ "networkmanager" "wheel" ];
   };
+
+  imports = [ 
+    ./hardware-configuration.nix
+  ];
 }

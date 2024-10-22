@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,10 +14,7 @@
     yandex-music.url = "github:cucumber-sp/yandex-music-linux";
   };
 
-  outputs = { self, nixpkgs, unstable, home-manager, nixvim, yandex-music }: 
-  let
-    pkgs-unstable = import unstable { system = "x86_64-linux"; config.allowUnfree = true; };
-  in {
+  outputs = { self, nixpkgs, home-manager, nixvim, yandex-music }: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -35,7 +31,6 @@
           }
           yandex-music.nixosModules.default
         ];
-        specialArgs = { inherit pkgs-unstable; };
       };
     };
   };
