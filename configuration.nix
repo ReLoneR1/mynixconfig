@@ -18,6 +18,7 @@
     rustdesk-flutter
     sassc
     speedtest-cli
+    teamspeak_client
     tilix
     tldr
     unzip

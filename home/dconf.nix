@@ -10,6 +10,7 @@
       "appindicatorsupport@rgcjonas.gmail.com"
       "blur-my-shell@aunetx"
       "color-picker@tuberry"
+      "no-overview@fthx"
       "rx-input-layout-switcher@wzmn.net"
       "user-theme@gnome-shell-extensions.gcampax.github.com"
       "weatheroclock@CleoMenezesJr.github.io"
@@ -20,6 +21,7 @@
     appindicator
     blur-my-shell
     color-picker
+    no-overview
     rx-input-layout-switcher
     user-themes
     weather-oclock
