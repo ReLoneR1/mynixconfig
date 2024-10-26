@@ -3,20 +3,15 @@
 {
   environment.systemPackages = with pkgs; [
     alsa-utils
+    audacious
     drawing
     floorp
-    gnome.dconf-editor
-    gnome-extension-manager
-    gnome.gnome-themes-extra
-    gnome.gnome-tweaks
     gnumake
-    gtk-engine-murrine
     julia-bin
     lutris
     obs-studio
     onlyoffice-bin
     rustdesk-flutter
-    sassc
     speedtest-cli
     teamspeak_client
     tilix
@@ -53,7 +48,7 @@
   virtualisation.libvirtd.enable = true;
 
   programs.yandex-music.enable = true;
-
+  
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
@@ -68,26 +63,9 @@
   ];
 
 
-  services.xserver.displayManager.gdm = {
-    enable = true;
-    wayland = false;
-  };
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-
-  services.xserver.desktopManager.gnome.enable = true;
-  environment.gnome.excludePackages = with pkgs.gnome; [
-    epiphany
-    geary
-    gnome-calendar
-    gnome-characters
-    gnome-clocks
-    gnome-contacts
-    gnome-font-viewer
-    gnome-maps
-    gnome-music
-    gnome-software
-  ];
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.desktopManager.cinnamon.enable = true;
+  services.cinnamon.apps.enable = true;
 
   networking.hostName = "nixos";
   system.stateVersion = "24.05";
