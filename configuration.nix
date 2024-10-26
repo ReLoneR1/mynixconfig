@@ -6,6 +6,7 @@
     audacious
     drawing
     floorp
+    galculator
     gnumake
     julia-bin
     lutris
@@ -20,6 +21,10 @@
     vscodium
     wget
     wowup-cf
+    xfce.xfce4-pulseaudio-plugin
+    xfce.xfce4-weather-plugin
+    xfce.xfce4-whiskermenu-plugin
+    xfce.xfce4-xkb-plugin
   ];
 
 
@@ -64,8 +69,7 @@
 
 
   services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.cinnamon.enable = true;
-  services.cinnamon.apps.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
 
   networking.hostName = "nixos";
   system.stateVersion = "24.05";

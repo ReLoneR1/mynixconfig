@@ -30,7 +30,7 @@
         }
         {
           type = "de";
-          key = "  ";
+          key = "  ";
           keyColor = "cyan";
         }
         {
