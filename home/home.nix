@@ -9,6 +9,7 @@
   };
   programs.home-manager.enable = true;
   imports = [
+    ./dconf.nix
     ./fastfetch.nix
     ./nixvim.nix
     ./zsh.nix

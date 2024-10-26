@@ -6,13 +6,18 @@
     audacious
     drawing
     floorp
-    galculator
+    gnome.dconf-editor
+    gnome-extension-manager
+    gnome.gnome-themes-extra
+    gnome.gnome-tweaks
     gnumake
+    gtk-engine-murrine
     julia-bin
     lutris
     obs-studio
     onlyoffice-bin
     rustdesk-flutter
+    sassc
     speedtest-cli
     teamspeak_client
     tilix
@@ -21,10 +26,6 @@
     vscodium
     wget
     wowup-cf
-    xfce.xfce4-pulseaudio-plugin
-    xfce.xfce4-weather-plugin
-    xfce.xfce4-whiskermenu-plugin
-    xfce.xfce4-xkb-plugin
   ];
 
 
@@ -57,7 +58,7 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-##########################################################################################################
+  # ---------------------------------------------------------------------------------------------------- #
 
   environment.sessionVariables = rec {
     TERMINAL = "tilix";
@@ -67,14 +68,30 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
-
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    wayland = false;
+  };
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
+  services.xserver.desktopManager.gnome.enable = true;
+  environment.gnome.excludePackages = with pkgs.gnome; [
+    epiphany
+    geary
+    gnome-calendar
+    gnome-characters
+    gnome-clocks
+    gnome-contacts
+    gnome-font-viewer
+    gnome-maps
+    gnome-music
+    gnome-software
+  ];
 
   networking.hostName = "nixos";
   system.stateVersion = "24.05";
 
-##########################################################################################################
+  ########################################################################################################
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
