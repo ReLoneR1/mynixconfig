@@ -6,18 +6,13 @@
     audacious
     drawing
     floorp
-    gnome.dconf-editor
-    gnome-extension-manager
-    gnome.gnome-themes-extra
-    gnome.gnome-tweaks
+    galculator
     gnumake
-    gtk-engine-murrine
     julia-bin
     lutris
     obs-studio
     onlyoffice-bin
     rustdesk-flutter
-    sassc
     speedtest-cli
     teamspeak_client
     tilix
@@ -26,6 +21,10 @@
     vscodium
     wget
     wowup-cf
+    xfce.xfce4-pulseaudio-plugin
+    xfce.xfce4-weather-plugin
+    xfce.xfce4-whiskermenu-plugin
+    xfce.xfce4-xkb-plugin
   ];
 
 
@@ -68,25 +67,10 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
-  services.xserver.displayManager.gdm = {
-    enable = true;
-    wayland = false;
-  };
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-  services.xserver.desktopManager.gnome.enable = true;
-  environment.gnome.excludePackages = with pkgs.gnome; [
-    epiphany
-    geary
-    gnome-calendar
-    gnome-characters
-    gnome-clocks
-    gnome-contacts
-    gnome-font-viewer
-    gnome-maps
-    gnome-music
-    gnome-software
-  ];
+
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
+  services.libinput.mouse.middleEmulation = false;
 
   networking.hostName = "nixos";
   system.stateVersion = "24.05";
