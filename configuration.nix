@@ -3,24 +3,29 @@
 {
   environment.systemPackages = with pkgs; [
     alsa-utils
+    anydesk
     audacious
     drawing
+    evince
     floorp
     galculator
+    gnome.file-roller
     gnumake
+    gtk-engine-murrine
     julia-bin
     lutris
     obs-studio
     onlyoffice-bin
+    pavucontrol
     rustdesk-flutter
     speedtest-cli
     teamspeak_client
     tilix
     tldr
-    unzip
     vscodium
     wget
     wowup-cf
+    xcolor
     xfce.xfce4-pulseaudio-plugin
     xfce.xfce4-weather-plugin
     xfce.xfce4-whiskermenu-plugin
@@ -48,6 +53,10 @@
   };
   
   programs.steam.enable = true;
+
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-archive-plugin
+  ];
 
   programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;

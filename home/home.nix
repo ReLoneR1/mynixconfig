@@ -13,7 +13,7 @@
     ./nixvim.nix
     ./zsh.nix
   ];
- 
+
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;

@@ -7,7 +7,7 @@
     vimAlias = true;
     colorschemes.base16 = {
       enable = true;
-      colorscheme = "catppuccin-frappe";
+      colorscheme = "uwunicorn";
     };
     clipboard = {
       register = "unnamedplus";
@@ -58,6 +58,7 @@
     };
     lualine.enable = true;
     nvim-autopairs.enable = true;
+    nvim-colorizer.enable = true;
     nvim-tree = {
       enable = true;
       view = {
@@ -110,7 +111,7 @@
     {
       mode = "n";
       action = ":NvimTreeFocus<CR>";
-      key = "<S-n>";
+      key = "<C-b>";
       options.silent = true;
     }
   ];
