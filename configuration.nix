@@ -10,6 +10,7 @@
     floorp
     galculator
     gnome.file-roller
+    gnome.gnome-system-monitor
     gnumake
     gtk-engine-murrine
     julia-bin
@@ -22,6 +23,7 @@
     teamspeak_client
     tilix
     tldr
+    vesktop
     vscodium
     wget
     wowup-cf
@@ -38,6 +40,8 @@
     nvidiaSupport = true;
   };
 
+  programs.gamemode.enable = true;
+
   programs.nh = {
     enable = true;
     clean.enable = true;
@@ -51,7 +55,7 @@
       conda
     ];
   };
-  
+
   programs.steam.enable = true;
 
   programs.thunar.plugins = with pkgs.xfce; [
@@ -140,7 +144,7 @@
   users.users.reloner = {
     isNormalUser = true;
     description = "ReLoneR";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "gamemode"];
   };
 
   imports = [ 
