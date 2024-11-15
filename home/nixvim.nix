@@ -7,7 +7,7 @@
     vimAlias = true;
     colorschemes.base16 = {
       enable = true;
-      colorscheme = "uwunicorn";
+      colorscheme = "gruvbox-material-dark-soft";
     };
     clipboard = {
       register = "unnamedplus";

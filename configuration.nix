@@ -4,13 +4,16 @@
   environment.systemPackages = with pkgs; [
     alsa-utils
     anydesk
-    audacious
+    baobab
+    brave
     drawing
     evince
     floorp
     galculator
+    gnome.eog
     gnome.file-roller
     gnome.gnome-system-monitor
+    gnome.nautilus
     gnumake
     gtk-engine-murrine
     julia-bin
@@ -18,6 +21,7 @@
     obs-studio
     onlyoffice-bin
     pavucontrol
+    pragha
     rustdesk-flutter
     speedtest-cli
     teamspeak_client
@@ -58,10 +62,6 @@
 
   programs.steam.enable = true;
 
-  programs.thunar.plugins = with pkgs.xfce; [
-    thunar-archive-plugin
-  ];
-
   programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;
 
@@ -83,6 +83,11 @@
 
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.xfce.enable = true;
+  environment.xfce.excludePackages = with pkgs.xfce; [
+    mousepad
+    ristretto
+    xfce4-taskmanager
+  ];
   services.libinput.mouse.middleEmulation = false;
 
   networking.hostName = "nixos";
@@ -149,5 +154,6 @@
 
   imports = [ 
     ./hardware-configuration.nix
+    #./zapret.nix
   ];
 }
