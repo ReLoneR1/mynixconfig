@@ -57,6 +57,13 @@
       };
     };
     lualine.enable = true;
+    neorg = {
+      enable = true;
+      modules = {
+        "core.defaults" = { __empty = null; };
+        "core.concealer" = { __empty = null; };
+      };
+    };
     nvim-autopairs.enable = true;
     nvim-colorizer.enable = true;
     nvim-tree = {
@@ -73,6 +80,7 @@
     };
     transparent.enable = true;
     treesitter.enable = true;
+    web-devicons.enable = true;
   };
 
 

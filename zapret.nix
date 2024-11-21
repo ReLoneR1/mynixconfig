@@ -1,14 +1,13 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
   services.zapret = {
     enable = true;
-    params = {
-      #"--dpi-desync=fake,disorder2"
-      #"--dpi-desync-ttl=1"
-      #"--dpi-desync-autottl=2"
-    };
-    whitelist = {
+    params = [
+      "--dpi-desync=fake"
+      "--dpi-desync-ttl=3"
+    ];
+    whitelist = [
       ######################################################################
       #github.com/Flowseal/zapret-discord-youtube/blob/main/list-general.txt
       "googlevideo.com"
@@ -49,6 +48,6 @@
       "cloudflare-ech.com"
       ######################################################################
       "archon.gg"
-    };
+    ];
   };
 }
