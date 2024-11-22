@@ -2,18 +2,20 @@
   description = "reloner flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    yandex-music.url = "github:cucumber-sp/yandex-music-linux";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim }: {
+  outputs = { self, nixpkgs, home-manager, nixvim, yandex-music }:
+  {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -27,6 +29,7 @@
             nixvim.homeManagerModules.nixvim
           ];
         }
+        yandex-music.nixosModules.default
       ];
     };
   };

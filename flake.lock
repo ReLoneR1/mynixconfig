@@ -74,6 +74,23 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1705309234,
+        "narHash": "sha256-uNRRNRKmJyCRC/8y1RqBkqWBLM034y4qN7EprSdmgyA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "1ef2e671c3b0c19053962c07dbda38332dcebf26",
+        "type": "github"
+      },
+      "original": {
+        "id": "flake-utils",
+        "type": "indirect"
+      }
+    },
     "git-hooks": {
       "inputs": {
         "flake-compat": [
@@ -133,16 +150,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1731880681,
-        "narHash": "sha256-FmYTkIyPBUxSWgA7DPIVTsCCMvSSbs56yOtHpLNSnKg=",
+        "lastModified": 1732025103,
+        "narHash": "sha256-qjEI64RKvDxRyEarY0jTzrZMa8ebezh2DEZmJJrpVdo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "aecd341dfead1c3ef7a3c15468ecd71e8343b7c6",
+        "rev": "a46e702093a5c46e192243edbd977d5749e7f294",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-24.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -219,18 +235,32 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1732146532,
-        "narHash": "sha256-NvpuXM7xCM2Z13r+I8A9jomqSyQD+k6lZge2AlaFdGg=",
+        "lastModified": 1732014248,
+        "narHash": "sha256-y/MEyuJ5oBWrWAic/14LaIr/u5E0wRVzyYsouYY3W6w=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "8b31f63a2b9870440cd0be820219397139f0fcd9",
+        "rev": "23e89b7da85c3640bbc2173fe04f4bd114342367",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "release-24.11",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1708093448,
+        "narHash": "sha256-gohEm3/NVyu7WINFhRf83yJH8UM2ie/KY9Iw3VN6fiE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c7763249f02b7786b4ca36e13a4d7365cfba162f",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
       }
     },
     "nixvim": {
@@ -288,10 +318,26 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "yandex-music": "yandex-music"
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
@@ -325,6 +371,38 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
+      }
+    },
+    "yandex-music": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_2",
+        "ymExe": "ymExe"
+      },
+      "locked": {
+        "lastModified": 1732236337,
+        "narHash": "sha256-rKpRYQ4u+looS68SVdeto3OJDUffs/Lxd6pGLIeoqCQ=",
+        "owner": "cucumber-sp",
+        "repo": "yandex-music-linux",
+        "rev": "c2cc415c62cdd9c0cc5383930fa2bd00660908c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cucumber-sp",
+        "repo": "yandex-music-linux",
+        "type": "github"
+      }
+    },
+    "ymExe": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-CfvsHEUUQfFFDm2hS+6qHf4aGzlgOrCJLvHDvw6wE/E=",
+        "type": "file",
+        "url": "https://music-desktop-application.s3.yandex.net/stable/Yandex_Music_x64_5.29.3.exe"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://music-desktop-application.s3.yandex.net/stable/Yandex_Music_x64_5.29.3.exe"
       }
     }
   },

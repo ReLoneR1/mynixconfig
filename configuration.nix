@@ -3,40 +3,42 @@
 {
   environment.systemPackages = with pkgs; [
     alsa-utils
+    curlHTTP3
+    gnumake
+    julia-lts
+    speedtest-cli
+    tilix
+    tldr
+    wget
+    xcolor
+    yt-dlp
+
     anydesk
+    floorp
+    lutris
+    obs-studio
+    onlyoffice-bin
+    pragha
+    rustdesk-flutter
+    teamspeak_client
+    vesktop
+    vscodium
+    wowup-cf
+
     baobab
-    chromium
     drawing
     evince
     eog
     file-roller
-    floorp
     galculator
     gnome-system-monitor
-    gnumake
     gtk-engine-murrine
-    julia-lts
-    lutris
     nautilus
-    obs-studio
-    onlyoffice-bin
     pavucontrol
-    pragha
-    rustdesk-flutter
-    speedtest-cli
-    teamspeak_client
-    tilix
-    tldr
-    vesktop
-    vscodium
-    wget
-    wowup-cf
-    xcolor
     xfce.xfce4-pulseaudio-plugin
     xfce.xfce4-weather-plugin
     xfce.xfce4-whiskermenu-plugin
     xfce.xfce4-xkb-plugin
-    #yandex-music
   ];
 
 
@@ -65,6 +67,8 @@
 
   programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;
+
+  programs.yandex-music.enable = true;
   
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -90,7 +94,7 @@
   services.libinput.mouse.middleEmulation = false;
 
   networking.hostName = "nixos";
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 
   ########################################################################################################
 
@@ -129,6 +133,7 @@
   };
   time.timeZone = "Europe/Moscow";
   networking.networkmanager.enable = true;
+  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;

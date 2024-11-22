@@ -8,7 +8,7 @@
       "--dpi-desync-ttl=3"
     ];
     whitelist = [
-      ######################################################################
+      "archon.gg"
       #github.com/Flowseal/zapret-discord-youtube/blob/main/list-general.txt
       "googlevideo.com"
       "youtu.be"
@@ -46,8 +46,6 @@
       "7tv.io"
       "10tv.app"
       "cloudflare-ech.com"
-      ######################################################################
-      "archon.gg"
     ];
   };
 }
