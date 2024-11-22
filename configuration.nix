@@ -3,22 +3,20 @@
 {
   environment.systemPackages = with pkgs; [
     alsa-utils
-    curlHTTP3
     gnumake
+    ipset
     julia-lts
     speedtest-cli
     tilix
     tldr
     wget
     xcolor
-    yt-dlp
 
     anydesk
     floorp
     lutris
     obs-studio
     onlyoffice-bin
-    pragha
     rustdesk-flutter
     teamspeak_client
     vesktop
@@ -100,6 +98,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_11;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
@@ -136,6 +135,7 @@
   networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
 
   hardware.pulseaudio.enable = false;
+  hardware.alsa.enablePersistence = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

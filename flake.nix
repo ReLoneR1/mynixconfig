@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    zapret_drafts.url = "github:ReLoneR1/nixpkgs/zapret_drafts";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +15,7 @@
     yandex-music.url = "github:cucumber-sp/yandex-music-linux";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, yandex-music }:
+  outputs = { self, nixpkgs, zapret_drafts, home-manager, nixvim, yandex-music }:
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -31,6 +32,7 @@
         }
         yandex-music.nixosModules.default
       ];
+      specialArgs = { inherit zapret_drafts; };
     };
   };
 }

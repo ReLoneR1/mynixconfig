@@ -150,11 +150,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1732025103,
-        "narHash": "sha256-qjEI64RKvDxRyEarY0jTzrZMa8ebezh2DEZmJJrpVdo=",
+        "lastModified": 1732303962,
+        "narHash": "sha256-5Umjb5AdtxV5jSJd5jxoCckh5mlg+FBQDsyAilu637g=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a46e702093a5c46e192243edbd977d5749e7f294",
+        "rev": "8cf9cb2ee78aa129e5b8220135a511a2be254c0c",
         "type": "github"
       },
       "original": {
@@ -319,7 +319,8 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "yandex-music": "yandex-music"
+        "yandex-music": "yandex-music",
+        "zapret_drafts": "zapret_drafts"
       }
     },
     "systems": {
@@ -403,6 +404,22 @@
       "original": {
         "type": "file",
         "url": "https://music-desktop-application.s3.yandex.net/stable/Yandex_Music_x64_5.29.3.exe"
+      }
+    },
+    "zapret_drafts": {
+      "locked": {
+        "lastModified": 1732304829,
+        "narHash": "sha256-a8no7wpdoEHEolzDOXyxyVoevv/G4zwgNpBFQ5Su0q8=",
+        "owner": "ReLoneR1",
+        "repo": "nixpkgs",
+        "rev": "56d8f95d707b32ef8de38a2fd72f5ae12f532d32",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ReLoneR1",
+        "ref": "zapret_drafts",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     }
   },
